@@ -197,6 +197,30 @@ export default function Home() {
           body: JSON.stringify(payload),
         });
       }
+
+      const nameParts = payload.full_name.trim().split(/\s+/).filter(Boolean);
+      const prenom = nameParts[0] ?? "";
+      const nom = nameParts.slice(1).join(" ");
+      try {
+        await fetch(
+          "https://www.bookeai.fr/api/leads?center=jfg-clinic-venelles&source=landing",
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              first_name: prenom,
+              last_name: nom,
+              email: payload.email,
+              phone: payload.phone,
+              offre: "1 zone achetée = 1 zone offerte JFG Clinic Venelles",
+              commentaire: `Zones à traiter : ${selectedZones.join(", ") || "non précisé"} | Contact message : ${messageOptIn}`,
+            }),
+          },
+        );
+      } catch {
+        // Bookea ne doit pas bloquer la demande Venelles.
+      }
+
       track("Lead", {
         content_name: "Bilan offert + 1 zone achetée = 1 zone offerte",
         center: CITY_NAME,
@@ -429,3 +453,4 @@ export default function Home() {
     </main>
   );
 }
+
