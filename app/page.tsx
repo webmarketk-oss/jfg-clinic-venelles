@@ -410,12 +410,34 @@ export default function Home() {
 
       {step === "thanks" && (
         <section className="thanks-panel" aria-labelledby="thanks-title">
+          <div className="thanks-check" aria-hidden="true">
+            ✓
+          </div>
           <p className="step-label">Demande reçue</p>
-          <h2 id="thanks-title">Merci, votre demande est bien prise en compte.</h2>
+          <h2 id="thanks-title">Toute notre équipe vous remercie !</h2>
+          <div className="thanks-urgency" role="status">
+            <strong>Derniers créneaux disponibles !</strong>
+            <p>
+              Les places sont limitées chaque semaine. Réservez votre bilan
+              laser offert + 1 zone achetée = 1 zone offerte avant qu&apos;il
+              ne soit trop tard.
+            </p>
+          </div>
+          <a
+            className="booking-action"
+            href="https://calendar.app.google/DhkUSRymxS7qUF5Y6"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Je réserve mon créneau
+          </a>
+          <p className="thanks-booking-note">
+            Réservation simple et rapide via Google Agenda
+          </p>
           <p>
-            Une personne de l&apos;équipe JFG Clinic à Venelles vous
-            contactera rapidement pour valider votre offre 1 zone achetée = 1
-            zone offerte, votre bilan offert, et confirmer votre créneau.
+            Nous avons bien reçu votre demande pour votre bilan laser et
+            l&apos;offre 1 zone achetée = 1 zone offerte à JFG Clinic Venelles.
+            Notre équipe prendra contact avec vous très rapidement.
           </p>
         </section>
       )}
