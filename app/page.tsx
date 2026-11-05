@@ -1,5 +1,5 @@
 "use client";
-/* JFG CLINIC VENELLES LASER — Black November jusqu'à -50% — PAS MARSEILLE 6 */
+/* JFG CLINIC VENELLES LASER — Black November jusqu'à -50% sur nos forfaits — PAS MARSEILLE 6 */
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
 
@@ -15,7 +15,7 @@ const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
 const CENTER_NAME = "JFG Clinic";
 const CITY_NAME = "Venelles";
 const OFFER_LABEL =
-  "Black November — jusqu'à -50 % + bilan et séance test offerts";
+  "Black November — jusqu'à -50 % sur nos forfaits + bilan et séance test offerts";
 
 const zones = [
   "Aisselles",
@@ -57,7 +57,7 @@ const faq = [
   {
     question: "L’offre est-elle limitée ?",
     answer:
-      "Oui. Black November, offre limitée : tarif exceptionnel jusqu’à -50 %, avec bilan et séance test offerts.",
+      "Oui. Black November, offre limitée : tarif exceptionnel jusqu’à -50 % sur nos forfaits, avec bilan et séance test offerts.",
   },
 ];
 
@@ -217,7 +217,7 @@ export default function Home() {
           phone: payload.phone,
           offre: "Black November -50",
           axe: "Laser",
-          commentaire: `Black November — jusqu'à -50 % + bilan et séance test offerts — zones : ${selectedZones.join(", ") || "non précisé"} | Contact message : ${messageOptIn}`,
+          commentaire: `Black November — jusqu'à -50 % sur nos forfaits + bilan et séance test offerts — zones : ${selectedZones.join(", ") || "non précisé"} | Contact message : ${messageOptIn}`,
         },
       );
 
@@ -241,14 +241,14 @@ export default function Home() {
       <section className="hero-section" aria-labelledby="page-title">
         <div className="hero-copy">
           <p className="eyebrow">Black November · offre limitée</p>
-          <h1 id="page-title">Jusqu&apos;à -50 %</h1>
+          <h1 id="page-title">Jusqu&apos;à -50 % sur nos forfaits</h1>
           <p className="hero-subtitle">
             Tarif exceptionnel · bilan et séance test offerts
           </p>
           <p className="hero-city">Venelles</p>
           <div className="trust-row" aria-label="Éléments de confiance">
             <span>Black November</span>
-            <span>Jusqu&apos;à -50 %</span>
+            <span>Jusqu&apos;à -50 % sur nos forfaits</span>
             <span>Bilan offert</span>
             <span>Séance test offerte</span>
           </div>
@@ -290,8 +290,8 @@ export default function Home() {
           <div>
             <p className="offer-ready">Black November · tarif exceptionnel</p>
             <p className="step-label">
-              2 étapes pour bloquer jusqu&apos;à -50 %, le bilan et la séance
-              test offerts
+              2 étapes pour bloquer jusqu&apos;à -50 % sur nos forfaits, le
+              bilan et la séance test offerts
             </p>
             <h2 id="zone-question">Quelle(s) zone(s) souhaitez-vous traiter ?</h2>
             <p className="helper-text">
@@ -345,8 +345,8 @@ export default function Home() {
             On vous rappelle pour bloquer ce tarif exceptionnel
           </p>
           <h2 id="form-title">
-            Vos coordonnées pour jusqu&apos;à -50 %, bilan et séance test
-            offerts.
+            Vos coordonnées pour jusqu&apos;à -50 % sur nos forfaits, bilan et
+            séance test offerts.
           </h2>
 
           <form className="lead-form" onSubmit={submitLead}>
@@ -422,8 +422,9 @@ export default function Home() {
           <div className="thanks-urgency" role="status">
             <strong>Offre limitée Black November</strong>
             <p>
-              Tarif exceptionnel jusqu&apos;à -50 %, avec bilan et séance test
-              offerts. Réservez avant la fin de l&apos;opération.
+              Tarif exceptionnel jusqu&apos;à -50 % sur nos forfaits, avec
+              bilan et séance test offerts. Réservez avant la fin de
+              l&apos;opération.
             </p>
           </div>
           <a
@@ -439,8 +440,8 @@ export default function Home() {
           </p>
           <p>
             Nous avons bien reçu votre demande Black November : jusqu&apos;à
-            -50 %, bilan et séance test offerts à JFG Clinic Venelles. Notre
-            équipe prendra contact avec vous très rapidement.
+            -50 % sur nos forfaits, bilan et séance test offerts à JFG Clinic
+            Venelles. Notre équipe prendra contact avec vous très rapidement.
           </p>
         </section>
       )}
