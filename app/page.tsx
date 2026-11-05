@@ -1,5 +1,5 @@
 "use client";
-/* JFG CLINIC VENELLES LASER — jusqu'à -50% — PAS MARSEILLE 6 */
+/* JFG CLINIC VENELLES LASER — Black November jusqu'à -50% — PAS MARSEILLE 6 */
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
 
@@ -15,7 +15,7 @@ const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
 const CENTER_NAME = "JFG Clinic";
 const CITY_NAME = "Venelles";
 const OFFER_LABEL =
-  "Jusqu'à -50 % + bilan et séance test offerts";
+  "Black November — jusqu'à -50 % + bilan et séance test offerts";
 
 const zones = [
   "Aisselles",
@@ -29,6 +29,11 @@ const zones = [
 ];
 
 const faq = [
+  {
+    question: "C’est quoi l’offre Black November ?",
+    answer:
+      "Un tarif exceptionnel : jusqu’à -50 % sur nos forfaits laser, avec bilan et séance test offerts. Offre limitée.",
+  },
   {
     question: "Le -50 % concerne quoi ?",
     answer:
@@ -50,14 +55,9 @@ const faq = [
       "Cela dépend de la zone, du type de peau et du poil. Le bilan sert justement à estimer le protocole adapté.",
   },
   {
-    question: "Puis-je traiter plusieurs zones ?",
-    answer:
-      "Oui, vous pouvez cocher plusieurs zones. Pendant le bilan, l’équipe applique jusqu’à -50 % sur le forfait adapté.",
-  },
-  {
     question: "L’offre est-elle limitée ?",
     answer:
-      "Oui. Offre limitée : jusqu’à -50 %, avec bilan et séance test offerts.",
+      "Oui. Black November, offre limitée : tarif exceptionnel jusqu’à -50 %, avec bilan et séance test offerts.",
   },
 ];
 
@@ -215,14 +215,14 @@ export default function Home() {
           last_name: nom,
           email: payload.email,
           phone: payload.phone,
-          offre: "Laser -50",
+          offre: "Black November -50",
           axe: "Laser",
-          commentaire: `Jusqu'à -50 % + bilan et séance test offerts — zones : ${selectedZones.join(", ") || "non précisé"} | Contact message : ${messageOptIn}`,
+          commentaire: `Black November — jusqu'à -50 % + bilan et séance test offerts — zones : ${selectedZones.join(", ") || "non précisé"} | Contact message : ${messageOptIn}`,
         },
       );
 
       track("Lead", {
-        content_name: "Laser -50",
+        content_name: "Black November -50",
         center: CITY_NAME,
         zones: selectedZones.join(", "),
       });
@@ -240,15 +240,17 @@ export default function Home() {
 
       <section className="hero-section" aria-labelledby="page-title">
         <div className="hero-copy">
-          <p className="eyebrow">Offre limitée · Venelles</p>
+          <p className="eyebrow">Black November · offre limitée</p>
           <h1 id="page-title">Jusqu&apos;à -50 %</h1>
-          <p className="hero-subtitle">Bilan et séance test offerts</p>
+          <p className="hero-subtitle">
+            Tarif exceptionnel · bilan et séance test offerts
+          </p>
           <p className="hero-city">Venelles</p>
           <div className="trust-row" aria-label="Éléments de confiance">
+            <span>Black November</span>
             <span>Jusqu&apos;à -50 %</span>
             <span>Bilan offert</span>
             <span>Séance test offerte</span>
-            <span>Réponse rapide</span>
           </div>
         </div>
 
@@ -286,9 +288,10 @@ export default function Home() {
       {step === "intro" && (
         <section className="quiz-panel" aria-labelledby="zone-question">
           <div>
-            <p className="offer-ready">Jusqu&apos;à -50 % · offre limitée</p>
+            <p className="offer-ready">Black November · tarif exceptionnel</p>
             <p className="step-label">
-              2 étapes pour bloquer le -50 %, le bilan et la séance test offerts
+              2 étapes pour bloquer jusqu&apos;à -50 %, le bilan et la séance
+              test offerts
             </p>
             <h2 id="zone-question">Quelle(s) zone(s) souhaitez-vous traiter ?</h2>
             <p className="helper-text">
@@ -337,8 +340,10 @@ export default function Home() {
           >
             Retour
           </button>
-          <p className="offer-ready">Dernière étape · jusqu&apos;à -50 %</p>
-          <p className="step-label">On vous rappelle pour bloquer l’offre</p>
+          <p className="offer-ready">Dernière étape · Black November</p>
+          <p className="step-label">
+            On vous rappelle pour bloquer ce tarif exceptionnel
+          </p>
           <h2 id="form-title">
             Vos coordonnées pour jusqu&apos;à -50 %, bilan et séance test
             offerts.
@@ -415,11 +420,10 @@ export default function Home() {
           <p className="step-label">Demande reçue</p>
           <h2 id="thanks-title">Toute notre équipe vous remercie !</h2>
           <div className="thanks-urgency" role="status">
-            <strong>Derniers créneaux disponibles !</strong>
+            <strong>Offre limitée Black November</strong>
             <p>
-              Les places sont limitées chaque semaine. Réservez jusqu&apos;à
-              -50 %, avec bilan et séance test offerts, avant qu&apos;il ne
-              soit trop tard.
+              Tarif exceptionnel jusqu&apos;à -50 %, avec bilan et séance test
+              offerts. Réservez avant la fin de l&apos;opération.
             </p>
           </div>
           <a
@@ -434,9 +438,9 @@ export default function Home() {
             Réservation simple et rapide via Google Agenda
           </p>
           <p>
-            Nous avons bien reçu votre demande pour jusqu&apos;à -50 %, le
-            bilan et la séance test offerts à JFG Clinic Venelles.
-            Notre équipe prendra contact avec vous très rapidement.
+            Nous avons bien reçu votre demande Black November : jusqu&apos;à
+            -50 %, bilan et séance test offerts à JFG Clinic Venelles. Notre
+            équipe prendra contact avec vous très rapidement.
           </p>
         </section>
       )}
