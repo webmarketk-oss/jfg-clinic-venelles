@@ -1,4 +1,5 @@
 "use client";
+/* JFG CLINIC VENELLES LASER — jusqu'à -50% — PAS MARSEILLE 6 */
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
 
@@ -13,6 +14,8 @@ const LEAD_WEBHOOK_URL = process.env.NEXT_PUBLIC_LEAD_WEBHOOK_URL;
 const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
 const CENTER_NAME = "JFG Clinic";
 const CITY_NAME = "Venelles";
+const OFFER_LABEL =
+  "Jusqu'à -50 % + bilan et séance test offerts";
 
 const zones = [
   "Aisselles",
@@ -27,19 +30,19 @@ const zones = [
 
 const faq = [
   {
-    question: "Le bilan est-il vraiment offert ?",
+    question: "Le -50 % concerne quoi ?",
     answer:
-      "Oui. Le bilan permet d'analyser votre peau, vos poils et vos zones, puis de vous proposer le protocole le plus adapté.",
+      "Jusqu’à -50 % sur nos forfaits laser. Le tarif exact dépend des zones et est confirmé pendant le bilan.",
   },
   {
-    question: "1 zone achetée = 1 zone offerte, c'est vrai ?",
+    question: "Le bilan et la séance test sont-ils vraiment offerts ?",
     answer:
-      "Oui. Pour une zone achetée, une seconde zone vous est offerte. Le détail est validé pendant le bilan, selon les zones choisies.",
+      "Oui. Bilan et séance test offerts. Vous voyez si le protocole vous convient avant de vous lancer.",
   },
   {
     question: "Le bilan comprend quoi ?",
     answer:
-      "Un diagnostic personnalisé, un test de la technologie laser et un plan de séances adapté à votre objectif.",
+      "Un diagnostic personnalisé, une séance test de la technologie laser et un plan adapté à votre objectif.",
   },
   {
     question: "Combien de séances faut-il prévoir ?",
@@ -49,12 +52,12 @@ const faq = [
   {
     question: "Puis-je traiter plusieurs zones ?",
     answer:
-      "Oui, vous pouvez cocher plusieurs zones. Pendant le bilan offert, l'équipe applique l'offre 1 zone achetée = 1 zone offerte.",
+      "Oui, vous pouvez cocher plusieurs zones. Pendant le bilan, l’équipe applique jusqu’à -50 % sur le forfait adapté.",
   },
   {
-    question: "L'épilation définitive convient-elle à tout le monde ?",
+    question: "L’offre est-elle limitée ?",
     answer:
-      "Certaines situations demandent un avis préalable. Le bilan permet de vérifier les indications et contre-indications.",
+      "Oui. Offre limitée : jusqu’à -50 %, avec bilan et séance test offerts.",
   },
 ];
 
@@ -189,7 +192,7 @@ export default function Home() {
       zones: selectedZones,
       center: CITY_NAME,
       center_display_name: `${CENTER_NAME} ${CITY_NAME}`,
-      offer: "Bilan offert + 1 zone achetée = 1 zone offerte",
+      offer: OFFER_LABEL,
       page: `Épilation laser ${CENTER_NAME} ${CITY_NAME}`,
       source: "jfg-clinic-venelles",
       submitted_at: new Date().toISOString(),
@@ -212,13 +215,14 @@ export default function Home() {
           last_name: nom,
           email: payload.email,
           phone: payload.phone,
-          offre: "1 zone achetée = 1 zone offerte JFG Clinic Venelles",
-          commentaire: `Zones à traiter : ${selectedZones.join(", ") || "non précisé"} | Contact message : ${messageOptIn}`,
+          offre: "Laser -50",
+          axe: "Laser",
+          commentaire: `Jusqu'à -50 % + bilan et séance test offerts — zones : ${selectedZones.join(", ") || "non précisé"} | Contact message : ${messageOptIn}`,
         },
       );
 
       track("Lead", {
-        content_name: "Bilan offert + 1 zone achetée = 1 zone offerte",
+        content_name: "Laser -50",
         center: CITY_NAME,
         zones: selectedZones.join(", "),
       });
@@ -236,14 +240,14 @@ export default function Home() {
 
       <section className="hero-section" aria-labelledby="page-title">
         <div className="hero-copy">
-          <p className="eyebrow">Offre JFG Clinic Venelles</p>
-          <h1 id="page-title">1 zone achetée = 1 zone offerte</h1>
-          <p className="hero-subtitle">Bilan laser offert</p>
+          <p className="eyebrow">Offre limitée · Venelles</p>
+          <h1 id="page-title">Jusqu&apos;à -50 %</h1>
+          <p className="hero-subtitle">Bilan et séance test offerts</p>
           <p className="hero-city">Venelles</p>
           <div className="trust-row" aria-label="Éléments de confiance">
-            <span>1 zone achetée = 1 offerte</span>
+            <span>Jusqu&apos;à -50 %</span>
             <span>Bilan offert</span>
-            <span>Test laser inclus</span>
+            <span>Séance test offerte</span>
             <span>Réponse rapide</span>
           </div>
         </div>
@@ -282,10 +286,9 @@ export default function Home() {
       {step === "intro" && (
         <section className="quiz-panel" aria-labelledby="zone-question">
           <div>
-            <p className="offer-ready">Votre offre 1+1 et votre bilan offert sont presque prêts</p>
+            <p className="offer-ready">Jusqu&apos;à -50 % · offre limitée</p>
             <p className="step-label">
-              2 étapes pour demander 1 zone achetée = 1 zone offerte + bilan
-              offert
+              2 étapes pour bloquer le -50 %, le bilan et la séance test offerts
             </p>
             <h2 id="zone-question">Quelle(s) zone(s) souhaitez-vous traiter ?</h2>
             <p className="helper-text">
@@ -320,7 +323,7 @@ export default function Home() {
             onClick={openForm}
             type="button"
           >
-            Voir mon offre 1+1
+            Voir mon offre
           </button>
         </section>
       )}
@@ -334,11 +337,11 @@ export default function Home() {
           >
             Retour
           </button>
-          <p className="offer-ready">Votre offre 1+1 et votre bilan offert sont presque prêts</p>
-          <p className="step-label">Dernière étape</p>
+          <p className="offer-ready">Dernière étape · jusqu&apos;à -50 %</p>
+          <p className="step-label">On vous rappelle pour bloquer l’offre</p>
           <h2 id="form-title">
-            Remplissez vos coordonnées pour 1 zone achetée = 1 zone offerte +
-            bilan offert.
+            Vos coordonnées pour jusqu&apos;à -50 %, bilan et séance test
+            offerts.
           </h2>
 
           <form className="lead-form" onSubmit={submitLead}>
@@ -398,7 +401,7 @@ export default function Home() {
               disabled={isSubmitting}
               type="submit"
             >
-              {isSubmitting ? "Envoi en cours..." : "Je profite de l'offre 1+1"}
+              {isSubmitting ? "Envoi en cours..." : "Je profite de l'offre"}
             </button>
           </form>
         </section>
@@ -414,9 +417,9 @@ export default function Home() {
           <div className="thanks-urgency" role="status">
             <strong>Derniers créneaux disponibles !</strong>
             <p>
-              Les places sont limitées chaque semaine. Réservez votre bilan
-              laser offert + 1 zone achetée = 1 zone offerte avant qu&apos;il
-              ne soit trop tard.
+              Les places sont limitées chaque semaine. Réservez jusqu&apos;à
+              -50 %, avec bilan et séance test offerts, avant qu&apos;il ne
+              soit trop tard.
             </p>
           </div>
           <a
@@ -431,8 +434,8 @@ export default function Home() {
             Réservation simple et rapide via Google Agenda
           </p>
           <p>
-            Nous avons bien reçu votre demande pour votre bilan laser et
-            l&apos;offre 1 zone achetée = 1 zone offerte à JFG Clinic Venelles.
+            Nous avons bien reçu votre demande pour jusqu&apos;à -50 %, le
+            bilan et la séance test offerts à JFG Clinic Venelles.
             Notre équipe prendra contact avec vous très rapidement.
           </p>
         </section>
@@ -471,4 +474,3 @@ export default function Home() {
     </main>
   );
 }
-
